@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #b9b9b9;
+        color: #333;
+        margin: 20px;
+      }
+      .user-details {
+        max-width: 400px;
+        margin: auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #91483e;
+      }
+      .detail-label {
+        display: block;
+        margin-bottom: 8px;
+        color: #fff;
+        font-weight: bold;
+        width: 40%;
+        padding: 15px;
+        margin: auto;
+      }
+      .detail-value {
+        margin-bottom: 16px;
+        color: #ffffff;
+        text-align: left;
+        width: 60%;
+        padding: 15px;
+        margin: auto;
+      }
+      .label {
+        display: flex;
+        background-color: #646363;
+        margin-bottom: 20px;
+        border-radius: 5px;
+      }
+      a {
+        background-color: #91483e;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-right: 8px;
+        text-decoration: none;
+        width: 50%;
+        text-align: center;
+      }
+      a:hover{
+        background-color: #b86459;
+      }
+      .anger{
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>User Details</h1>
+    <div class="user-details">
+      <div class="label">
+        <span class="detail-label">Full Name</span>
+        <span class="detail-value">: <%= profile[0].name %></span>
+      </div>
+      <div class="label">
+        <span class="detail-label">Email</span>
+        <span class="detail-value">: <%= profile[0].email %></span>
+      </div>
+      <% if (profile.length > 0 && profile[0].extraDetails.length > 0) { %> <%
+      profile[0].extraDetails.forEach(details => { %>
+      <div class="label">
+        <span class="detail-label">Date of Birth</span>
+        <span class="detail-value">: <%= details.dateObirth %></span>
+      </div>
+      <div class="label">
+        <span class="detail-label">Age</span>
+        <span class="detail-value">: <%= details.age %></span>
+      </div>
+      <div class="label">
+        <span class="detail-label">Gender</span>
+        <span class="detail-value">: <%= details.gender %></span>
+      </div>
+      <div class="label">
+        <span class="detail-label">Contacts</span>
+        <span class="detail-value">: <%= details.number %></span>
+      </div>
+      <div class="anger">
+        <a href="/users/updateUser">Editprofile</a>
+        <a href="/users/userHome">Home</a>
+      </div>
+    </div>
+
+    <% }); %> <% } else { %>
+    <p>No profile details found.</p>
+    <% } %>
+  </body>
+</html>
+
+

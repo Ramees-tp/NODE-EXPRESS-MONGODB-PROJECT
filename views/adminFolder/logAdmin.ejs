@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .signup-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+      }
+      h2 {
+        color: #b30c0c;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      button {
+        background-color: #b30c0c;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hai">
+      <div class="signup-container">
+        <h2>ADMIN LOGG IN PAGE</h2>
+        <form action="/admin/loginn" method="post" onsubmit="return logfunc()">
+          <input
+            name="fname"
+            type="text"
+            placeholder="enter your name"
+            required
+          />
+          <input
+            id="pass2"
+            name="pswrd"
+            type="password"
+            placeholder="enter your password"
+            required
+          />
+          <span id="messages"></span>
+          <p><%=message %></p>
+          <button type="submit">ADMIN LOG IN</button>
+        </form>
+      </div>
+      <div>
+        <h3 style="text-align: center">If you are admin please Login</h3>
+       
+      </div>
+    </div>
+  </body>
+  <script>
+     function logfunc() {
+      
+      var firstNameInput=document.getElementsByName("fname")[0]
+      var passwordInput = document.getElementById("pass2");
+      var messagesSpan = document.getElementById("messages");
+      
+
+      var nameRegex = /^[a-zA-Z\s]+$/;
+      var passwordRegex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+      if (!nameRegex.test(firstNameInput.value)) {                                                                    
+        messagesSpan.innerText =
+          "Invalid First Name. Only alphabets and spaces are allowed.";
+        return false;
+      }
+      if (!passwordRegex.test(passwordInput.value)) {
+        messagesSpan.innerText = "Password does not meet the requirements.";
+        return false; // Prevent form submission
+      } else {
+        messagesSpan.innerText = "";
+        return true; // Allow form submission
+      }
+    }
+  </script>
+ 
+</html>

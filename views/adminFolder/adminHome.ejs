@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: white;
+      }
+      header {
+          background-color:  #1a6166;
+          color: white;
+          padding: 10px;
+          text-align: center;
+      }
+      nav {
+          background-color: #1a6166;
+          color: #fff;
+          padding: 10px;
+          text-align: center;
+          display: flex;
+          justify-content: space-around;
+      }
+      section {
+          padding: 20px;
+      }
+      footer {
+          background-color: #1a6166;
+          color: #fff;
+          padding: 20px;
+          text-align: center;
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+      }
+      a{
+            
+            background-color: #a09e19;
+            color: rgb(238, 229, 229);
+            font-weight: bold;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 8px;
+            text-decoration: none;
+        
+        }
+        a:hover{
+            background-color: #d1cf3c;
+            color: black;
+        }
+        .sec{
+            text-align: center;
+            line-height: 20px;
+        }
+  </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>ADMIN HOME PAGE</h1>
+  </header>
+  <nav>
+      <a href="/admin/proForm">PRODUCT FORM</a> |
+      <a href="/admin/proList">PRODUCT LIST FORM</a> |
+      <!-- <a href="/admin/editPro">PRODUCT EDIT FORM</a>  -->
+      <a href="/admin/userList">USERS LIST</a> |
+      <a href="/admin/logout">LOGOUT</a>
+  </nav>
+  <section class="sec">
+      <h1 >Welcome to the Admin Home Page</h1>
+      <p>If you are a admin please add some new products and give customerse a good experience.</p>
+      <p>have a nice day <span style="color: red;">MR RAMEES</span></p>
+  </section>
+
+  <footer>
+      &copy; 2023 Admin Dashboard
+  </footer>
+  </body>
+</html>

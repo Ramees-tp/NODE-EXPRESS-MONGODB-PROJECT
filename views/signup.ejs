@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f0f2f5;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+        }
+        .signup-container {
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          width: 300px;
+          text-align: center;
+        }
+        h2 {
+          color: #b30c0c;
+        }
+        input {
+          width: 100%;
+          padding: 10px;
+          margin: 8px 0;
+          box-sizing: border-box;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+        }
+        button {
+          background-color: #b30c0c;
+          color: #fff;
+          padding: 10px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          width: 100%;
+        }
+      </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Create a New Account</h2>
+        <form action="/signup" method="post" onsubmit="return signFunction()">
+          <input name="fname" type="text" placeholder="First Name" required />
+          <input name="mail" type="email" placeholder="Email" required />
+          <input
+            id="pass"
+            name="pswrd"
+            type="password"
+            placeholder="Password"
+            required
+          />
+          <input
+            id="cpass"
+            name="cpswrd"
+            type="password"
+            placeholder="Confirm Password"
+            required
+          />
+          <span style="color: #b30c0c;" id="messages"></span>
+          <p style="color: #b30c0c;"><%=message%></p>
+          <button type="submit">Sign Up</button>
+        </form>
+        <h4 style="color: #1877f2">If You Have Already Have An Account</h4>
+        <p>please login</p>
+        <button><a style="text-decoration: none;color: #fff;" href="/login">LogIn</a></button>
+      </div>
+    </body>
+</body>
+<script> function signFunction(){
+    var firstNameInput= document.getElementsByName("fname")[0];
+    var mailInput=document.getElementsByName("mail")[0]
+    var passwordInput=document.getElementById("pass")
+    var confirmPass=document.getElementById("cpass")
+    var mspan=document.getElementById("messages")
+
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var nameRegex = /^[a-zA-Z\s]+$/;
+    var passwordRegex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+        if(!nameRegex.test(firstNameInput.value)){
+           mspan.innerText="Invalid First Name. Only alphabets and spaces are allowed.";
+           return false
+        }
+        if(!emailRegex.test(mailInput.value)){
+            mspan.innerText="Password does not meet the requirements.";
+            return false
+        }
+        if(!passwordRegex.test(passwordInput.value)){
+            mspan.innerText="Password does not meet the requirements.";
+            return false
+        }
+        if(passwordInput.value===confirmPass.value){
+           return true
+        }
+        else{
+            mspan.innerText="password does not match"
+            return false
+        }
+        mspan.innerText=" "
+        return true
+   }
+  </script>
+    
+  
+</html>
+
